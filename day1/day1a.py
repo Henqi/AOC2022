@@ -6,8 +6,7 @@ max_calories = 0
 
 for elf in data:
     elf = elf.split('\n')
-    elf = [int(x) for x in elf]
-    max = sum(elf)
+    max = sum([int(x) for x in elf])
     if max > max_calories:
         max_calories = max
     
