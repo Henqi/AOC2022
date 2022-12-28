@@ -31,7 +31,7 @@ for round in strategy:
     for key in result_points:
         if key in round:
             points += result_points[key]
-            
+
             if key == 'X':
                 points += shape_points[lose[round[0]]]
             elif key == 'Y':
@@ -39,5 +39,4 @@ for round in strategy:
             elif key == 'Z':
                 points += shape_points[win[round[0]]]
                 
-
 print(points)
