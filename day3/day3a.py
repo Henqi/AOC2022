@@ -7,10 +7,11 @@ item_types = list(string.ascii_letters)
 priorities = list(range(1,53))
 
 item_priorities = {}
-sum_of_prio = 0
 
 for key, value in zip(item_types, priorities):
     item_priorities[key] = value
+
+sum_of_prio = 0
 
 for rucksack in inventory:
     first_bag = rucksack[:int(len(rucksack)/2)]
