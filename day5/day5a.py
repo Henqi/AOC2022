@@ -1,6 +1,5 @@
 with open('input5.txt', 'r') as file:
-    input = file.read().split('\n')
-    instructions = input[10:]
+    instructions = file.read().split('\n')[10:]
 
 # first item/index on the bottom of stack
 stack1 = ['D', 'L', 'V', 'T', 'M', 'H', 'F']
@@ -18,15 +17,15 @@ split_instructions = [line.split(' ') for line in instructions]
 
 def execute_instructions(instructions):
     move_amount = int(instructions[1])
-    from_stack = int(instructions[3])
-    to_stack = int(instructions[5])
+    from_stack = all_stacks[int(instructions[3])-1]
+    from_stack_index = int(instructions[3])-1
+    to_stack = all_stacks[int(instructions[5])-1]
 
-    moving_boxes = all_stacks[from_stack-1][-move_amount:]
+    moving_boxes = from_stack[-move_amount:]
     moving_boxes.reverse() # crane can only operate one box at a time
-    all_stacks[from_stack-1] = all_stacks[from_stack-1][:-move_amount]
-    all_stacks[to_stack-1].extend(moving_boxes)
-    new_stack = all_stacks[to_stack-1]
-    print(new_stack)
+    all_stacks[from_stack_index] = from_stack[:-move_amount]
+    to_stack.extend(moving_boxes)
+    print(to_stack)
 
 [execute_instructions(line) for line in split_instructions]
 
