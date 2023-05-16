@@ -31,5 +31,4 @@ def execute_instructions(instructions):
 
 result = [stack[-1] for stack in all_stacks]
 
-print('result: ')
-print(result)
+print('result: ' + ''.join(result))
