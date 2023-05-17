@@ -1,8 +1,5 @@
 with open('input6.txt', 'r') as file:
-    characters = file.read()
-
-char_list = []
-[char_list.append(char) for char in characters]
+    char_list = list(file.read())
 
 def is_unique_chars(input):
     input_list = list(input)
@@ -16,6 +13,5 @@ def is_unique_chars(input):
 
 for i in range(0, len(char_list)):
     if is_unique_chars(char_list[i:i+4]):
-        print(char_list[i:i+4])
         print('result index:' + str(i+4))
         break
