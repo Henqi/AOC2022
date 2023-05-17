@@ -3,9 +3,7 @@ with open('input6.txt', 'r') as file:
 
 def is_unique_chars(input):
     input_list = list(input)
-    input_set = set(input)
-    input_set_tolist = list(input_set)
-    
+    input_set_tolist = list(set(input))
     input_list.sort()
     input_set_tolist.sort()
     
