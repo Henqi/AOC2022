@@ -17,18 +17,16 @@ split_instructions = [line.split(' ') for line in instructions]
 
 def execute_instructions(instructions):
     move_amount = int(instructions[1])
-    from_stack = all_stacks[int(instructions[3])-1]
     from_stack_index = int(instructions[3])-1
+    from_stack = all_stacks[from_stack_index]
     to_stack = all_stacks[int(instructions[5])-1]
 
     moving_boxes = from_stack[-move_amount:]
     moving_boxes.reverse() # crane can only operate one box at a time
     all_stacks[from_stack_index] = from_stack[:-move_amount]
     to_stack.extend(moving_boxes)
-    print(to_stack)
 
 [execute_instructions(line) for line in split_instructions]
 
 result = [stack[-1] for stack in all_stacks]
-
 print('result: ' + ''.join(result))
