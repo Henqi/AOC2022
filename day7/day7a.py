@@ -11,14 +11,12 @@ def interpret(feed):
         if line[0] == '$':
             if line[2:4] == 'cd':
                 if line[5:7] == '..':
-                    current_dir = current_dir.rsplit('/', 1)[0] 
+                    current_dir = current_dir.rsplit('/', 2)[0] + '/' 
                 else:
-                    current_dir += line.split(' ')[2] + '/'
-            elif line[2:4] == 'ls':
-                pass
+                    current_dir += line.split(' ')[2] if current_dir == '' else line.split(' ')[2] + '/'
         else:
             if line[0:3] == 'dir':
-                pass
+                continue
             else:
                 filesize = int(line.split(' ')[0])
                 if current_dir == '/':
@@ -32,6 +30,7 @@ def interpret(feed):
                         directory_sizes[dir] += filesize
 
 interpret(terminal_feed)
+
 filtered_dict = {key: value for key, value in directory_sizes.items() if value <= 100000}
 result = sum(filtered_dict.values())
 
