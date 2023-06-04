@@ -44,6 +44,5 @@ for y in range(len(tree_map)):
             continue
         check_visibility(x, y, int(tree_map[y][x]))
 
-
-result = VISIBLE_TREES
-print('result: {result}'.format(result=result))
+RESULT = VISIBLE_TREES
+print('result: {RESULT}'.format(RESULT=RESULT))
